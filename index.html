@@ -3,9 +3,397 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>30 Dias em Disciplina Financeira</title>
-    <link rel="stylesheet" href="css.css" />
+    <title>Disciplina Financeira | Tayná Caires</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #000;
+        color: #fff;
+      }
+
+      /* NOVAS SECTIONS */
+
+      .section {
+        padding: 60px 20px;
+        background: #0d0d0d;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .tag {
+        color: #d4af37;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        color: #fff;
+      }
+
+      .problem {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        max-width: 700px;
+        margin: 15px auto;
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .problem-icon {
+        min-width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #d4af37;
+        color: #d4af37;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .highlight {
+        max-width: 700px;
+        margin: 30px auto;
+        border: 2px solid #d4af37;
+        padding: 20px;
+        text-align: center;
+        color: #d4af37;
+        font-weight: bold;
+      }
+
+      .phase {
+        max-width: 700px;
+        margin: 20px auto;
+        background: #1a1a1a;
+        padding: 25px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .phase span {
+        display: inline-block;
+        background: #d4af37;
+        color: #000;
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 30px;
+        margin-bottom: 15px;
+      }
+
+      .phase h3 {
+        color: #d4af37;
+        margin-bottom: 10px;
+      }
+
+      .timeline {
+        max-width: 700px;
+        margin: 25px auto;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .number {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        border-radius: 50%;
+        background: #d4af37;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.4rem;
+      }
+
+      .timeline h3 {
+        color: #d4af37;
+        margin-bottom: 8px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.6s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      /* FOTO */
+      .hero-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url("fotos/foto\ page\ -\ Editado.png") center center /
+          cover no-repeat;
+        z-index: 1;
+      }
+
+      /* GRADIENTE PARA DAR CONTRASTE */
+      .hero-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.747) 0%,
+          rgba(0, 0, 0, 0.514) 40%,
+          rgba(0, 0, 0, 0.9) 100%
+        );
+        z-index: 2;
+      }
+
+      .hero-content {
+        margin-top: 300px;
+        position: relative;
+        z-index: 5;
+        max-width: 900px;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        margin-top: 20px;
+        color: #e0e0e0;
+      }
+
+      /* RESPONSIVO */
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 20px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+        .hero-bg {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: url("fotos/foto\ page\ -\ Editado.png") center center /
+            cover no-repeat;
+          z-index: 1;
+        }
+      }
+
+      .cta-btn {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 15px 30px;
+        background: #edc02c;
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s;
+        position: relative;
+        animation: scalePulse 2s infinite;
+      }
+
+      .small {
+        padding: 12px 25px;
+      }
+
+      /* BENEFITS */
+      .benefits {
+        padding: 0px 20px;
+        background: #111;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        background: #1a1a1a;
+        padding: 30px;
+        border: 1px solid #d4af37;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      /* PROBLEMS */
+      .problems {
+        background: #111;
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      .problem-card {
+        background: #1a1a1a;
+        padding: 25px;
+        border-left: 4px solid #d4af37;
+        margin: 10px;
+        width: 200px;
+      }
+
+      /* TESTIMONIALS */
+      .testimonials {
+        padding: 0px 20px;
+        text-align: center;
+      }
+
+      .testimonial {
+        background: #1a1a1a;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 8px;
+        width: 300px;
+      }
+
+      .final-cta {
+        padding: 50px 20px;
+        background: #0d0d0d;
+        text-align: center;
+      }
+
+      .final-message {
+        margin-top: 40px;
+        font-size: 1.2rem;
+        color: #ffffff;
+      }
+
+      @keyframes scalePulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .about {
+        position: relative;
+        overflow: hidden;
+        padding: 100px 20px;
+        text-align: center;
+        background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
+      }
+
+      .about-text {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      /* FUNDO DE BOLHAS */
+      .bubble-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(212, 175, 55, 0.4) 0%,
+          rgba(212, 175, 55, 0.05) 70%
+        );
+        animation: float 12s infinite ease-in-out;
+        filter: blur(10px);
+      }
+
+      /* Tamanhos e posições */
+      .b1 {
+        width: 200px;
+        height: 200px;
+        top: 20%;
+        left: 10%;
+        animation-duration: 9s;
+      }
+      .b2 {
+        width: 150px;
+        height: 150px;
+        top: 70%;
+        left: 20%;
+        animation-duration: 7s;
+      }
+      .b3 {
+        width: 250px;
+        height: 250px;
+        top: 40%;
+        left: 75%;
+        animation-duration: 3s;
+      }
+      .b4 {
+        width: 120px;
+        height: 120px;
+        top: 10%;
+        left: 60%;
+        animation-duration: 8s;
+      }
+      .b5 {
+        width: 180px;
+        height: 180px;
+        top: 80%;
+        left: 85%;
+        animation-duration: 2s;
+      }
+
+      /* Movimento suave */
+      @keyframes float {
+        0% {
+          transform: translateY(0px) translateX(0px);
+        }
+        50% {
+          transform: translateY(-30px) translateX(20px);
+        }
+        100% {
+          transform: translateY(0px) translateX(0px);
+        }
+      }
+    </style>
   </head>
+
   <body>
     <!-- HERO -->
     <section class="hero">
@@ -13,14 +401,14 @@
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
-        <h1>MENTORIA: disciplina financeira aplicada</h1>
+        <h1>CONSULTORIA: Disciplina Financeira em 90 dias</h1>
         <p>
-          O método que você precisa para sair do automático e construir uma
-          mente de riqueza
+          Organize suas finanças, transforme seus hábitos e construa liberdade
+          com acompanhamento individual.
         </p>
-        <a href="https://wa.me/5521972271740" class="cta-btn"
-          >QUERO COMEÇAR AGORA</a
-        >
+        <a href="https://wa.me/5521972271740" class="cta-btn">
+          QUERO MINHA VAGA
+        </a>
       </div>
     </section>
 
@@ -28,19 +416,27 @@
     <section class="benefits">
       <div class="container">
         <div class="card">
-          <h3>DESCUBRA O QUE TE SABOTA</h3>
-          <p>Você descobrirá seus gatilhos para o gasto inconsciente</p>
-        </div>
-        <div class="card">
-          <h3>BLINDE SEU EGO</h3>
+          <h3>DIAGNÓSTICO FINANCEIRO</h3>
           <p>
-            Aquele que não se controla, é controlado pelos outros ou pelo
-            sistema
+            Você entenderá quanto ganha, quanto gasta e para onde seu dinheiro
+            está indo.
           </p>
         </div>
+
         <div class="card">
-          <h3>MOTIVAÇÃO GUIADA</h3>
-          <p>Não vou apenas te apontar o problema, te levarei até a solução</p>
+          <h3>ESTRUTURA E PLANEJAMENTO</h3>
+          <p>
+            Criaremos uma organização prática para compras, reservas,
+            prioridades e decisões financeiras.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>ACOMPANHAMENTO REAL</h3>
+          <p>
+            Você terá encontros individuais, dashboard interna, relatórios e
+            suporte durante o processo.
+          </p>
         </div>
       </div>
     </section>
@@ -56,75 +452,189 @@
       </div>
 
       <div class="about-text">
-        <h2>PROSPERAR NÃO É SOBRE SALÁRIO</h2>
-        <p>É sobre disciplina aplicada.</p>
+        <h2>DINHEIRO SEM DIREÇÃO VIRA DESCONTROLE</h2>
+        <p>Você trabalha duro, mas sente que o dinheiro nunca sobra?</p>
         <p>
-          Eu construí meus primeiros 10 mil em 1 ano ganhando menos de 3 mil,
-          <br />cortando impulsos e seguindo esse método
+          A consultoria Disciplina Financeira foi criada para reestruturar sua
+          vida financeira em 90 dias, unindo estratégia, comportamento e
+          acompanhamento.
         </p>
-        <a href="https://wa.me/5521972271740" class="cta-btn small"
-          >COMEÇAR AGORA</a
-        >
+        <a href="https://wa.me/5521972271740" class="cta-btn small">
+          COMEÇAR AGORA
+        </a>
       </div>
     </section>
 
-    <!-- PROBLEMAS -->
-    <section class="problems">
-      <h2>POR QUE VOCÊ AINDA NÃO CONSEGUIU JUNTAR DINHEIRO?</h2>
-      <div class="container">
-        <div class="problem-card">Falta de controle emocional</div>
-        <div class="problem-card">Visão de escassez</div>
-        <div class="problem-card">Ausência de um método</div>
+    <!-- PROBLEMA -->
+    <section class="section">
+      <div class="section-title reveal">
+        <div class="tag">O problema</div>
+        <h2>O que está travando sua evolução?</h2>
+      </div>
+
+      <div class="problem reveal">
+        <div class="problem-icon">01</div>
+        <div>Você trabalha duro, mas o dinheiro nunca sobra.</div>
+      </div>
+
+      <div class="problem reveal">
+        <div class="problem-icon">02</div>
+        <div>Gastos impulsivos sabotam seus planos.</div>
+      </div>
+
+      <div class="problem reveal">
+        <div class="problem-icon">03</div>
+        <div>Parcelamentos e dívidas viram uma bola de neve.</div>
+      </div>
+
+      <div class="problem reveal">
+        <div class="problem-icon">04</div>
+        <div>Você não sabe para onde seu dinheiro está indo.</div>
+      </div>
+
+      <div class="highlight reveal">
+        Isso tem solução e eu vou te ajudar nessa transformação.
       </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
+    <!-- MÉTODO -->
+    <section class="section" id="metodo">
+      <div class="section-title reveal">
+        <div class="tag">Método</div>
+        <h2>Disciplina Financeira™</h2>
+      </div>
+
+      <div class="phase reveal">
+        <span>01</span>
+        <h3>Diagnóstico</h3>
+        <p>Entenda sua realidade financeira.</p>
+      </div>
+
+      <div class="phase reveal">
+        <span>02</span>
+        <h3>Construção</h3>
+        <p>Crie estrutura, planeje e defina prioridades.</p>
+      </div>
+
+      <div class="phase reveal">
+        <span>03</span>
+        <h3>Evolução</h3>
+        <p>Acompanhe resultados e ganhe consistência.</p>
+      </div>
+    </section>
+
+    <!-- 90 DIAS -->
+    <section class="section">
+      <div class="section-title reveal">
+        <div class="tag">90 dias</div>
+        <h2>As 3 fases do acompanhamento</h2>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="number">1</div>
+        <div>
+          <h3>Diagnóstico e Organização</h3>
+          <p>Raio-x financeiro completo da sua vida financeira.</p>
+        </div>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="number">2</div>
+        <div>
+          <h3>Estratégia e Construção</h3>
+          <p>Reserva de emergência, estratégias de compras e planejamento.</p>
+        </div>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="number">3</div>
+        <div>
+          <h3>Consolidação e Evolução</h3>
+          <p>
+            Correção de desvios, ajustes de comportamento e planejamento anual.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUSO -->
     <section class="testimonials">
-      <h2>Como sairemos do 0?</h2>
+      <h2>O que está incluso?</h2>
+
       <div class="container">
-        <div class="testimonial">APRENDENDO A LIDAR COM EGO</div>
-        <div class="testimonial">DESTRUINDO SUAS CRENÇAS LIMITANTES</div>
-        <div class="testimonial">ROMPENDO CICLO DE ESCASSEZ</div>
-        <div class="testimonial">CONSTRUINDO IDENTIDADE DE RIQUEZA</div>
+        <div class="testimonial">
+          12 encontros individuais<br />
+          30 a 45 minutos cada
+        </div>
+
+        <div class="testimonial">
+          Dashboard interna<br />
+          da consultoria
+        </div>
+
+        <div class="testimonial">
+          Relatórios, análises<br />
+          e diagnósticos personalizados
+        </div>
+
+        <div class="testimonial">
+          Suporte via WhatsApp<br />
+          durante o processo
+        </div>
+        <div class="testimonial">
+          Construa relacionamento<br />
+          bancário
+        </div>
+        <div class="testimonial">
+          Aula bônus<br />
+          de investimento
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section class="problems">
+      <h2>RESULTADOS QUE IRÁ CONQUISTAR</h2>
+
+      <div class="container">
+        <div class="problem-card">Clareza total sobre sua vida financeira</div>
+        <div class="problem-card">Controle dos gastos e fim do descontrole</div>
+        <div class="problem-card">Reserva de emergência iniciada</div>
+        <div class="problem-card">Compras planejadas e sem culpa</div>
+        <div class="problem-card">Relacionamento saudável com o dinheiro</div>
+        <div class="problem-card">Disciplina financeira para a vida toda</div>
       </div>
     </section>
 
     <!-- CTA FINAL -->
     <section class="final-cta">
-      <h2>VOCÊ CONHECE O DAVI DO BBB 24?</h2>
-
-      <div class="social-context">
-        <div class="context-item">
-          <img
-            class="img-bbb"
-            src="fotos/contexto01.jpeg"
-            alt="Falta de gestão financeira"
-          />
-          <h3>
-            Compras por impulso e medo de lidar com o dinheiro o fizeram QUEIMAR
-            3,5 MILHÕES
-          </h3>
-        </div>
-
-        <div class="context-item">
-          <img
-            class="img-bbb"
-            src="fotos/contexto02.jpeg"
-            alt="Desorganização financeira"
-          />
-          <h3>
-            No final ele tentou encontrar culpados pelas suas próprias falhas
-          </h3>
-        </div>
-      </div>
-
-      <h2 class="final-message">DISCIPLINA É O QUE CONSTRÓI PATRIMÔNIO👇</h2>
+      <p>Vagas limitadas • Confira disponibilidade</p>
 
       <a href="https://wa.me/5521972271740" class="cta-btn">
-        QUERO SAIR DO AUTOMÁTICO
+        QUERO REESTRUTURAR MINHAS FINANÇAS
       </a>
     </section>
 
-    <script src="js.js"></script>
+    <script>
+      // Scroll fade
+      window.addEventListener("scroll", () => {
+        const elements = document.querySelectorAll(
+          ".card, .problem-card, .testimonial, .reveal",
+        );
+
+        elements.forEach((el) => {
+          const position = el.getBoundingClientRect().top;
+
+          if (position < window.innerHeight - 100) {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+            el.classList.add("show");
+          }
+        });
+      });
+
+      // Ativa elementos visíveis ao carregar a página
+      window.dispatchEvent(new Event("scroll"));
+    </script>
   </body>
 </html>
