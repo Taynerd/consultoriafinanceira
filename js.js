@@ -66,7 +66,7 @@ const urlAppsScriptLimpa = URL_APPS_SCRIPT.trim();
 
 if (
   !urlAppsScriptLimpa ||
-  urlAppsScriptLimpa.includes("https://script.google.com/macros/s/AKfycbwFUSkZGQXwUBmUBE9-udk3vySJ8ygLWdBGA9nouEmXIOggWNKRtO4c0iTkiUJRtNyX/exec") ||
+  urlAppsScriptLimpa.includes("https://script.google.com/macros/s/AKfycbxJ1qr7OlqWDR8NQmo04kyk0mYIjZw_2ucfXjqdq4rfmGIykWgFJ00vniI8SYBptRc/exec") ||
   !urlAppsScriptLimpa.includes("script.google.com/macros/s/")
 ) {
   mensagem.textContent =
