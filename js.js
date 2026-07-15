@@ -66,7 +66,7 @@ const urlAppsScriptLimpa = URL_APPS_SCRIPT.trim();
 
 if (
   !urlAppsScriptLimpa ||
-  urlAppsScriptLimpa.includes("COLE_AQUI") ||
+  urlAppsScriptLimpa.includes("https://script.google.com/macros/s/AKfycbxFD2o4deiHgPgv85DtUCxSR699I7d3QKbeOBYY5YSxgy7NFqxpV0XIMULfy1X51u8/exec") ||
   !urlAppsScriptLimpa.includes("script.google.com/macros/s/")
 ) {
   mensagem.textContent =
