@@ -242,11 +242,15 @@ body{
 .b4 { width: 120px; height: 120px; top: 10%; left: 60%; animation-duration: 8s; }
 .b5 { width: 180px; height: 180px; top: 80%; left: 85%; animation-duration: 2s; }
 
+
+
 /* Movimento suave */
 @keyframes float {
   0% { transform: translateY(0px) translateX(0px); }
   50% { transform: translateY(-30px) translateX(20px); }
   100% { transform: translateY(0px) translateX(0px); }
 }
+
+
 
 
