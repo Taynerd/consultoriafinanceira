@@ -64,8 +64,6 @@ const URL_APPS_SCRIPT =
 
 const urlAppsScriptLimpa = URL_APPS_SCRIPT.trim();
 
-const urlAppsScriptLimpa = URL_APPS_SCRIPT.trim();
-
 if (!urlAppsScriptLimpa.startsWith("https://script.google.com/macros/s/")) {
   mensagem.textContent =
     "O endereço de envio do formulário ainda não foi configurado.";
