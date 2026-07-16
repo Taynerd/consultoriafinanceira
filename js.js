@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* FORMULÁRIO */
 
 const URL_APPS_SCRIPT =
-  "https://script.google.com/macros/s/AKfycbxH-_PwOFFVnGwiG5mTd9Nf70t1tl9dckPSD2n0zmUvRNozRuTR-iIUBecXjePtQ0lp/exec".trim();
+  "https://script.google.com/macros/s/AKfycbwOL3ycM-_10sGcEj-rcmPtBCsW4ZYDMAhAM4F5GnkUgyFJX0Kxb_gXut0ormeGmVE/exec".trim();
 
   const formulario = document.getElementById("leadForm");
   const mensagem = document.getElementById("formStatus");
