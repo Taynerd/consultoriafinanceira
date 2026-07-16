@@ -64,14 +64,9 @@ const URL_APPS_SCRIPT =
 
 const urlAppsScriptLimpa = URL_APPS_SCRIPT.trim();
 
-if (
-  !urlAppsScriptLimpa ||
-  urlAppsScriptLimpa.includes("https://script.google.com/macros/s/AKfycbwOL3ycM-_10sGcEj-rcmPtBCsW4ZYDMAhAM4F5GnkUgyFJX0Kxb_gXut0ormeGmVE/exec") ||
- 
-  !urlAppsScriptLimpa.includes("script.google.com/macros/s/")
-  
-)console.log("URL usada pelo formulário:", URL_APPS_SCRIPT);
- {
+const urlAppsScriptLimpa = URL_APPS_SCRIPT.trim();
+
+if (!urlAppsScriptLimpa.startsWith("https://script.google.com/macros/s/")) {
   mensagem.textContent =
     "O endereço de envio do formulário ainda não foi configurado.";
 
@@ -79,7 +74,7 @@ if (
 
   console.error(
     "URL do Apps Script inválida:",
-    JSON.stringify(URL_APPS_SCRIPT)
+    JSON.stringify(urlAppsScriptLimpa)
   );
 
   return;
